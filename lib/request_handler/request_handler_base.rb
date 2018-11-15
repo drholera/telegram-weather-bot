@@ -1,10 +1,9 @@
 class RequestHandlerBase
-  attr_accessor :bot, :request, :command
+  attr_accessor :bot, :request
 
-  def initialize(bot, request, command)
+  def initialize(bot, request)
     @bot     = bot
     @request = request
-    @command = command
   end
 
   def handle
