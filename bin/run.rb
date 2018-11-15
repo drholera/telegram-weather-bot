@@ -1,7 +1,5 @@
 require 'telegram/bot'
-require File.expand_path('../../lib/utility/file_helper.rb', __FILE__ )
-require_relative File.expand_path('../../lib/request_handler/handler_factory', __FILE__)
-require_relative File.expand_path('../../lib/request_handler/start_handler', __FILE__)
+require_relative '../lib/load'
 
 loop do
   begin
