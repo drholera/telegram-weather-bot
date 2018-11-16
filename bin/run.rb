@@ -1,12 +1,19 @@
 require 'telegram/bot'
 require_relative '../lib/load'
+require_relative '../lib/helpers/last_command'
 
 loop do
   begin
     Telegram::Bot::Client.run('YOUR TOKEN HERE') do |bot|
       bot.listen do |rqst|
         Thread.start(rqst) do |rqst|
-          command = rqst.text[1..-1]
+          if rqst.text[0] == "/"
+            command = rqst.text[1..-1]
+            LastCommand::set_last_command(rqst.chat.id, command)
+          else
+            command = LastCommand::get_last_command(rqst.chat.id)
+          end
+
           handler_class_name = command.capitalize + "Handler"
           if HandlerFactory.class_exists?(handler_class_name)
             handler = HandlerFactory.get_instance(handler_class_name, bot, rqst)
