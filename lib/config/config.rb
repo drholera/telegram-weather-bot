@@ -1,8 +1,8 @@
-# Separate configuration class. Bot token can be easy modified here.
-class Config
+# Separate configuration module. Bot token can be easy modified here.
+module Config
 
-  def get_token
-    "YOUR TOKEN HERE"
-  end
+  BOT_TOKEN = "YOUR TOKEN HERE"
+
+  OPEN_WEATHER_TOKEN = "YOUR TOKEN HERE"
 
 end

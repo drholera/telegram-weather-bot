@@ -1,7 +1,8 @@
-require "openweather2"
 require_relative "./request_handler_base"
+require_relative "../../lib/config/config"
 
 class CurrentHandler < RequestHandlerBase
+  include Config
 
   def handle
     if @request.text[0] == "/"
@@ -16,10 +17,6 @@ class CurrentHandler < RequestHandlerBase
   end
 
   def handle_answer
-    Openweather2.configure do |config|
-      config.endpoint = 'http://api.openweathermap.org/data/2.5/weather'
-      config.apikey = "YOUR TOKEN HERE"
-    end
     weather = Openweather2.get_weather(city: @request.text)
     if weather
       @bot.api.send_message(chat_id: @request.chat.id, text: weather.city)
