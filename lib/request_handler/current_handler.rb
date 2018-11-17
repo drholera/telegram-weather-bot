@@ -17,9 +17,9 @@ class CurrentHandler < RequestHandlerBase
   end
 
   def handle_answer
-    weather = Openweather2.get_weather(city: @request.text)
+    weather = Openweather2.get_weather(city: @request.text, units: Config::UNITS)
     if weather
-      @bot.api.send_message(chat_id: @request.chat.id, text: weather.city)
+      @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_weather_string)
     else
       @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry, cannot find your city, try again")
     end

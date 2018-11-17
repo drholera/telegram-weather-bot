@@ -7,6 +7,7 @@ require_relative 'request_handler/start_handler'
 require_relative 'request_handler/stop_handler'
 require_relative 'request_handler/current_handler'
 require_relative 'config/config'
+require_relative '../lib/helpers/weather_extractor'
 
 
 Openweather2.configure do |config|
