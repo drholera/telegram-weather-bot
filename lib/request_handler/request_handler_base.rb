@@ -1,4 +1,8 @@
+require_relative '../../config'
+
 class RequestHandlerBase
+  include Config
+
   attr_accessor :bot, :request
 
   def initialize(bot, request)

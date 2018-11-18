@@ -1,7 +1,7 @@
 require 'telegram/bot'
 require_relative '../lib/load'
 require_relative '../lib/helpers/last_command'
-require_relative '../lib/config/config'
+require_relative '../config'
 
 include Config
 
@@ -10,7 +10,7 @@ loop do
     Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
       bot.listen do |rqst|
         Thread.start(rqst) do |rqst|
-          if rqst.text[0] == "/"
+          if rqst.text and rqst.text[0] == "/"
             command = rqst.text[1..-1]
             LastCommand::set_last_command(rqst.chat.id, command)
           else

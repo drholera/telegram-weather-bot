@@ -1,16 +1,7 @@
 require_relative "./request_handler_base"
-require_relative "../../lib/config/config"
+require_relative "command_answer_handler_base"
 
-class CurrentHandler < RequestHandlerBase
-  include Config
-
-  def handle
-    if @request.text[0] == "/"
-      handle_command
-    else
-      handle_answer
-    end
-  end
+class CurrentHandler < CommandAnswerHandlerBase
 
   def handle_command
     @bot.api.send_message(chat_id: @request.chat.id, text: "Please, tell me where are you located?")

@@ -3,7 +3,7 @@ require 'openweather2'
 # Extracts current weather string from Openweather2::Weather object.
 class WeatherExtractor
   WEATHER_PROPERTIES = {
-      :city => "Your city is: ",
+      :city => "Your location is: ",
       :temperature => "Current temperature (℃): ",
       :wind_speed => "Wind speed (m/s): ",
       :rain => "Rain: ",
