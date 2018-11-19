@@ -22,8 +22,7 @@ loop do
             handler = HandlerFactory.get_instance(handler_class_name, bot, rqst)
             handler.handle
           else
-            puts "Error"
-            exit 0
+            @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry, cannot find such a command")
           end
         end
       end
