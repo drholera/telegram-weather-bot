@@ -2,15 +2,6 @@ require_relative "command_answer_handler_base"
 
 class ForecastHandler < CommandAnswerHandlerBase
 
-  def initialize(bot, request)
-    super(bot, request)
-    # For the forecast endpoint need to be updated.
-    Openweather2.configure do |config|
-      config.endpoint = 'http://api.openweathermap.org/data/2.5/forecast'
-      config.apikey = Config::OPEN_WEATHER_TOKEN
-    end
-  end
-
   def handle_command
     @bot.api.send_message(chat_id: @request.chat.id, text: "Please, tell me where are you located?")
   end

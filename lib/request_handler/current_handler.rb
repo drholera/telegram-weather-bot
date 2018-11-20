@@ -8,7 +8,7 @@ class CurrentHandler < CommandAnswerHandlerBase
   end
 
   def handle_answer
-    weather = Openweather2.get_weather(city: @request.text, units: Config::UNITS)
+    weather = Weather::API.current_weather(@request.text)
     if weather
       @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_weather_string)
     else

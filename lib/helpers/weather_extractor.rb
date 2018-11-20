@@ -1,9 +1,7 @@
-require 'openweather2'
-
-# Extracts current weather string from Openweather2::Weather object.
+# Extracts current weather string from Openweather2::weather object.
 class WeatherExtractor
   WEATHER_PROPERTIES = {
-      :city => "Your location is: ",
+      :location_name => "Your location is: ",
       :temperature => "Current temperature (℃): ",
       :wind_speed => "Wind speed (m/s): ",
       :rain => "Rain: ",
@@ -13,10 +11,10 @@ class WeatherExtractor
   attr_accessor :weather, :complete_weather_string
 
   def initialize(weather)
-    if weather.is_a?(Openweather2::Weather)
+    if weather.is_a?(Weather::API)
       @weather = weather
     else
-      raise "Weather object is expected here"
+      raise "weather object is expected here"
     end
   end
 

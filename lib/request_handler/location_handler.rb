@@ -10,7 +10,7 @@ class LocationHandler < CommandAnswerHandlerBase
   end
 
   def handle_answer
-    weather = Openweather2.get_weather(lat: @request.location.latitude, lon: @request.location.longitude, units: Config::UNITS)
+    weather = Weather::API.current_weather_location(@request.location.latitude, @request.location.longitude)
     if weather
       @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_weather_string)
     else
