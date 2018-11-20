@@ -1,4 +1,5 @@
 require_relative "command_answer_handler_base"
+require_relative "../../lib/weather/weather"
 
 class ForecastHandler < CommandAnswerHandlerBase
 
@@ -8,12 +9,12 @@ class ForecastHandler < CommandAnswerHandlerBase
 
   def handle_answer
     # @todo: Need to update OpenWeather Api with forecast method.
-    # weather = Openweather2.get_weather(city: @request.text, units: Config::UNITS)
-    # if weather
-    #   @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_weather_string)
-    # else
-    #   @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry, cannot find your city, try again")
-    # end
+    weather = Weather::API.get_forecast(@request.text)
+    if weather
+      @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_forecast_string)
+    else
+      @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry, cannot find your city, try again")
+    end
   end
 
 end
