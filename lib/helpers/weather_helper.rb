@@ -8,7 +8,7 @@ class WeatherHelper
     return direction_arr[(val % 16)]
   end
 
-  # Helper function to convert to Celsius
+  # Helper function to convert Fahrenheit to Celsius
   def self.to_celsius(temp_f)
     ((temp_f - 32) * (5.0 / 9.0)).round(2)
   end
