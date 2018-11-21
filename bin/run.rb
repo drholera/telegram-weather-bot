@@ -1,7 +1,7 @@
 require 'telegram/bot'
 require_relative '../lib/load'
 require_relative '../lib/helpers/last_command'
-require_relative '../config'
+require_relative '../config/config'
 
 include Config
 

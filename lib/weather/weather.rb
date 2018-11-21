@@ -1,6 +1,6 @@
 require_relative '../../lib/helpers/weather_helper'
 require_relative '../../lib/weather/version'
-require_relative '../../config'
+require_relative '../../config/config'
 require 'httparty'
 
 # Thanks https://github.com/TheInvalidNonce/weatherbot-cli-app for the beautiful example.
