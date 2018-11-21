@@ -1,5 +1,5 @@
 class LastCommand
-  @@last_command = []
+  @@last_command = {}
 
   def self.set_last_command(chat_id, command)
     @@last_command[chat_id] = command
