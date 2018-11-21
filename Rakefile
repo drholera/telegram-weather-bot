@@ -10,7 +10,7 @@ namespace :db do
   task :migrate do
     connection_details = YAML.load_file('config/database.yml')
     ActiveRecord::Base.establish_connection(connection_details)
-    ActiveRecord::Migrator.migrate('db/migrate/')
+    ActiveRecord::MigrationContext.new('db/migrate/').migrate
   end
 
   desc 'Create the database'

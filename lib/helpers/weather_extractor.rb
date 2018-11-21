@@ -76,18 +76,19 @@ class WeatherExtractor
         day_name = "The other day"
       end
 
-      result += day_name + " forecast:\n"
+      result += day_name + " forecast:\n\n"
       prop_key.each do |property|
         if FORECAST_PROPERTIES["#{property[0]}"].nil? or property[1].nil?
           next
         end
         result += FORECAST_PROPERTIES["#{property[0]}"] + property[1].to_s + "\n"
       end
-      result += "\n\n"
+      result += " \n\n\n "
 
     end
 
     result
 
   end
+
 end
