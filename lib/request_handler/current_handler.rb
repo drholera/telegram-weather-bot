@@ -4,7 +4,13 @@ require_relative "command_answer_handler_base"
 class CurrentHandler < CommandAnswerHandlerBase
 
   def handle_command
-    @bot.api.send_message(chat_id: @request.chat.id, text: "Please, tell me where are you located?")
+    user = User.find_by(chat_id: @request.chat.id)
+    if user.enabled?
+      @bot.api.send_message(chat_id: @request.chat.id, text: "Please, tell me where are you located?")
+      return
+    end
+
+    @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry, you didn't enable me. Run /start command to start conversation")
   end
 
   def handle_answer

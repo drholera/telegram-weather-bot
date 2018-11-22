@@ -9,6 +9,8 @@ class StartHandler < RequestHandlerBase
       if user.nil?
         User.create(chat_id: @request.chat.id, enabled: true).save
       end
+      user.enabled = true
+      user.save
       @bot.api.send_message(chat_id: @request.chat.id, text: "Hello, #{@request.from.first_name}")
     rescue Exception => e
       @bot.logger.error e.message
