@@ -8,7 +8,6 @@ class ForecastHandler < CommandAnswerHandlerBase
   end
 
   def handle_answer
-    # @todo: Need to update OpenWeather Api with forecast method.
     weather = Weather::API.get_forecast(@request.text)
     if weather
       @bot.api.send_message(chat_id: @request.chat.id, text: WeatherExtractor.new(weather).get_forecast_string)

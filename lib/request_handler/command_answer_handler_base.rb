@@ -3,6 +3,7 @@ require_relative 'request_handler_base'
 class CommandAnswerHandlerBase < RequestHandlerBase
 
   def handle
+    super
     if @request.text and @request.text[0] == "/"
       handle_command
     else
