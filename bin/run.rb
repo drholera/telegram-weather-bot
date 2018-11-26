@@ -18,7 +18,7 @@ loop do
             command = LastCommand::get_last_command(rqst.chat.id)
           end
 
-          handler_class_name = command.capitalize + "Handler"
+          handler_class_name = command[0].capitalize + command[1..-1] + "Handler"
           if HandlerFactory.class_exists?(handler_class_name)
             handler = HandlerFactory.get_instance(handler_class_name, bot, rqst)
             handler.handle
