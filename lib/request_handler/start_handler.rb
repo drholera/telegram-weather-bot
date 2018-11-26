@@ -14,7 +14,7 @@ class StartHandler < RequestHandlerBase
     end
   end
 
-  def description
+  def self.description
     '/start command. Bot enabling.'
   end
 

@@ -22,7 +22,7 @@ class StopHandler < RequestHandlerBase
     @bot.api.send_message(chat_id: @request.chat.id, text: "Bye, #{@request.from.first_name}")
   end
 
-  def description
+  def self.description
     "/stop command. Stop bot. It won't handle commands after this command"
   end
 

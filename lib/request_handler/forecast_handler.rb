@@ -16,7 +16,7 @@ class ForecastHandler < CommandAnswerHandlerBase
     end
   end
 
-  def description
+  def self.description
     '/forecast command. Asks a city you want a forecast for. After providing city bot responses with 3-days forecast.'
   end
 

@@ -25,8 +25,13 @@ class RequestHandlerBase
     true
   end
 
-  def description
+  def self.description
     raise "Method's description. Will be user for /help command"
+  end
+
+  # Helper function for getting all the descendants of the base class.
+  def self.descendants
+    ObjectSpace.each_object(Class).select { |klass| klass < self }
   end
 
 end

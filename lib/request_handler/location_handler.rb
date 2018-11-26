@@ -18,7 +18,7 @@ class LocationHandler < CommandAnswerHandlerBase
     end
   end
 
-  def description
+  def self.description
     '/location command. Asks phone current location and provides current weather for the location'
   end
 
