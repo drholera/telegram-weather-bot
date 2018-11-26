@@ -21,4 +21,8 @@ class CurrentHandler < CommandAnswerHandlerBase
     end
   end
 
+  def description
+    '/current command. Asks a city you want a forecast for. After providing city bot responses with current weather.'
+  end
+
 end

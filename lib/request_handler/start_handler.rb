@@ -5,11 +5,17 @@ class StartHandler < RequestHandlerBase
 
   def handle
     begin
-      super
-      @bot.api.send_message(chat_id: @request.chat.id, text: "Hello, #{@request.from.first_name}")
+      new_user = super
+      if new_user
+        @bot.api.send_message(chat_id: @request.chat.id, text: "Hello, #{@request.from.first_name}")
+      end
     rescue Exception => e
       @bot.logger.error e.message
     end
+  end
+
+  def description
+    '/start command. Bot enabling.'
   end
 
 end
