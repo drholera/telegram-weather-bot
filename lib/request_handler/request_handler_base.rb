@@ -15,7 +15,7 @@ class RequestHandlerBase
     if @user.nil?
       @user = User.create(chat_id: @request.chat.id, enabled: true)
     elsif @user.enabled?
-      @bot.api.send_message(chat_id: @request.chat.id, text: "You have already enabled the bot. Please use /help command to see the list of available commands")
+      # Return false if bot is already enabled for a user.
       return false
     end
     @user.enabled = true
