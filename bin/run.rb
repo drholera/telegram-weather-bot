@@ -1,4 +1,5 @@
 require 'telegram/bot'
+require 'logger'
 require_relative '../lib/load'
 require_relative '../lib/helpers/last_command'
 require_relative '../config/config'
@@ -29,8 +30,14 @@ loop do
       end
     end
   rescue Exception => e
-    # @Todo. Add logging in case of error.
-    puts e.message
+    file_path = '../tmp/logs.txt'
+    dirname = File.dirname(file_path)
+    unless File.directory?(dirname)
+      Dir.mkdir(dirname)
+    end
+    logger = Logger.new(file_path)
+    logger.level = Logger::FATAL
+    logger.fatal e.message
     exit 0
   end
 end
