@@ -30,7 +30,7 @@ loop do
       end
     end
   rescue Exception => e
-    file_path = '../tmp/logs.txt'
+    file_path = '../tmp/error.txt'
     dirname = File.dirname(file_path)
     unless File.directory?(dirname)
       Dir.mkdir(dirname)
