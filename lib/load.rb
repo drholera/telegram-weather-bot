@@ -9,6 +9,7 @@ require_relative 'request_handler/location_handler'
 require_relative 'request_handler/forecast_handler'
 require_relative 'request_handler/help_handler'
 require_relative 'request_handler/set_city_handler'
+require_relative 'request_handler/schedule_on_handler'
 require_relative '../config/config'
 require_relative '../lib/helpers/weather_extractor'
 

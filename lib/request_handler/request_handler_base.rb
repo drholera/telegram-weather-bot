@@ -14,15 +14,12 @@ class RequestHandlerBase
   def handle
     if @user.nil?
       @user = User.create(chat_id: @request.chat.id, enabled: true)
-    elsif @user.enabled?
+      # If new user has been created - return true.
+      true
+    else
       # Return false if bot is already enabled for a user.
-      return false
+      false
     end
-    @user.enabled = true
-    @user.save
-
-    # If new user has been created - return true.
-    true
   end
 
   def self.description

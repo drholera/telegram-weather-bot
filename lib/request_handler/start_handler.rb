@@ -7,6 +7,8 @@ class StartHandler < RequestHandlerBase
     begin
       new_user = super
       if new_user
+        @user.enabled = true
+        @user.save
         @bot.api.send_message(chat_id: @request.chat.id, text: "Hello, #{@request.from.first_name}")
       else
         @bot.api.send_message(chat_id: @request.chat.id, text: "You have already enabled the bot. Please use /help command to see the list of available commands")
