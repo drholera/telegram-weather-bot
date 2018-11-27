@@ -17,4 +17,8 @@ class ScheduleOnHandler < RequestHandlerBase
     end
   end
 
+  def self.description
+    '/scheduleOn command. Enabling scheduled forecast for previously set city. Will be sent each day at the previously set time.'
+  end
+
 end
