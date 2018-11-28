@@ -1,16 +1,17 @@
 # Extracts current weather string from Openweather2::weather object.
 class WeatherExtractor
   WEATHER_PROPERTIES = {
-      :location_name  => "Your location is: ",
-      :temperature    => "Current temperature (℃): ",
-      :wind_speed     => "Wind speed (m/s): ",
-      :wind_direction => "Wind direction: "
+      :location_name => "Your location is: ",
+      :condition => "Sky condition: ",
+      :temperature => "Current temperature (℃): ",
+      :wind_speed => "Wind speed (m/s): ",
+      :wind_direction => "Wind direction: ",
   }
 
   FORECAST_PROPERTIES = {
-      "condition"      => "Sky condition: ",
-      "temp"           => "Temperature (℃): ",
-      "wind_speed"     => "Wind speed (m/s): ",
+      "condition" => "Sky condition: ",
+      "temp" => "Temperature (℃): ",
+      "wind_speed" => "Wind speed (m/s): ",
       "wind_direction" => "Wind direction: "
   }
 
@@ -47,7 +48,7 @@ class WeatherExtractor
   end
 
   def get_forecast_string
-    result     = ""
+    result = ""
     result_arr = {}
 
     FORECAST_HOURS.each do |hours|
@@ -57,8 +58,8 @@ class WeatherExtractor
     FORECAST_PROPERTIES.each do |prop_key, prop_value|
 
       result_arr.each do |hours_key, hours|
-        variable                             = prop_key.to_s + hours_key.to_s
-        weather_str                          = @weather.instance_variable_get("@#{variable}")
+        variable = prop_key.to_s + hours_key.to_s
+        weather_str = @weather.instance_variable_get("@#{variable}")
         result_arr[hours_key][prop_key.to_s] = weather_str
       end
 
