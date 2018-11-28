@@ -11,6 +11,7 @@ require_relative 'request_handler/help_handler'
 require_relative 'request_handler/set_city_handler'
 require_relative 'request_handler/schedule_on_handler'
 require_relative 'request_handler/schedule_off_handler'
+require_relative 'request_handler/set_schedule_time_handler'
 require_relative '../config/config'
 require_relative '../lib/helpers/weather_extractor'
 

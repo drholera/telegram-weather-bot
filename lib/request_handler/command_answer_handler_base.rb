@@ -4,10 +4,14 @@ class CommandAnswerHandlerBase < RequestHandlerBase
 
   def handle
     super
-    if @request.text and @request.text[0] == "/"
-      handle_command
+    if @user.enabled?
+      if @request.text and @request.text[0] == "/"
+        handle_command
+      else
+        handle_answer
+      end
     else
-      handle_answer
+      @bot.api.send_message(chat_id: @request.chat.id, text: "You must enable bot before using commands. Please, run /start command.")
     end
   end
 
