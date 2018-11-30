@@ -54,14 +54,11 @@ namespace :weather do
     logger.level = Logger::INFO
     logger.info ("Cron has been run at #{time}")
 
-    users = User.where(['forecast_time = ? and enabled = ? and schedule_enabled = ?', time, true, true])
-    if users
-      users.each do |user|
-        weather = Weather::API.current_weather(user.city)
-        logger.info("ChatId: #{user.chat_id}")
-        Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
-          bot.api.send_message(chat_id: user.chat_id, text: WeatherExtractor.new(weather).get_weather_string)
-        end
+    User.where(['forecast_time = ? and enabled = ? and schedule_enabled = ?', time, true, true]).each do |user|
+      weather = Weather::API.current_weather(user.city)
+      logger.info("ChatId: #{user.chat_id}")
+      Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
+        bot.api.send_message(chat_id: user.chat_id, text: WeatherExtractor.new(weather).get_weather_string)
       end
     end
 
