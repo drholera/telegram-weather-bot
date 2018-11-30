@@ -18,7 +18,7 @@ class ScheduleoffHandler < RequestHandlerBase
   end
 
   def self.description
-    '/scheduleOff command. Disabling scheduled forecast.'
+    '/scheduleoff command. Disabling scheduled forecast.'
   end
 
 end

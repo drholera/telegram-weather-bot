@@ -22,7 +22,7 @@ class SetcityHandler < CommandAnswerHandlerBase
   end
 
   def self.description
-    '/setCity command. Ask for a city and save it for current user. Will be used for scheduled forecasts'
+    '/setcity command. Ask for a city and save it for current user. Will be used for scheduled forecasts'
   end
 
 end

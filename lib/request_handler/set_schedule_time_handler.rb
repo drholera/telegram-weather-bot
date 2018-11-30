@@ -29,7 +29,7 @@ class SetscheduletimeHandler < CommandAnswerHandlerBase
   end
 
   def self.description
-    '/setScheduleTime command. Set time for a daily schedule.'
+    '/setscheduletime command. Set time for a daily schedule.'
   end
 
 end
