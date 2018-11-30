@@ -13,7 +13,14 @@ class HandlerFactory
     klass = Kernel.const_get(class_name)
     return klass.is_a?(Class)
   rescue NameError => e
-    puts e.message
+    file_path = '../tmp/warning.txt'
+    dirname = File.dirname(file_path)
+    unless File.directory?(dirname)
+      Dir.mkdir(dirname)
+    end
+    logger = Logger.new(file_path)
+    logger.level = Logger::WARN
+    logger.warn e.message
     return false
   end
 

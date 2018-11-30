@@ -16,8 +16,14 @@ class HelpHandler < RequestHandlerBase
       @bot.api.send_message(chat_id: @request.chat.id, text: message)
 
     rescue Exception => e
-      # @Todo. Add logging in case of error.
-      puts e.message
+      file_path = '../tmp/error.txt'
+      dirname = File.dirname(file_path)
+      unless File.directory?(dirname)
+        Dir.mkdir(dirname)
+      end
+      logger = Logger.new(file_path)
+      logger.level = Logger::FATAL
+      logger.fatal e.message
     end
 
   end
