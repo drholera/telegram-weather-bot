@@ -44,6 +44,16 @@ namespace :weather do
     ActiveRecord::Base.establish_connection(connection_details)
 
     time = Time.now.strftime('%H:%M')
+
+    file_path = '../tmp/cron.log'
+    dirname = File.dirname(file_path)
+    unless File.directory?(dirname)
+      Dir.mkdir(dirname)
+    end
+    logger = Logger.new(file_path)
+    logger.level = Logger::INFO
+    logger.info ("Cron has been run at #{time}")
+
     User.where(['forecast_time = ? and enabled = ? and schedule_enabled = ?', time, true, true]).each do |user|
       weather = Weather::API.current_weather(user.city)
       Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
