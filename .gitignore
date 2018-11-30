@@ -3,3 +3,4 @@ vendor
 Gemfile.lock
 .rake_tasks~
 tmp
+run.rb.pid

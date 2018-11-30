@@ -15,7 +15,7 @@ require_relative 'request_handler/set_schedule_time_handler'
 require_relative '../config/config'
 require_relative '../lib/helpers/weather_extractor'
 
-connection_details = YAML.load_file('../config/database.yml')
+connection_details = YAML.load_file(File.dirname(__FILE__ ) + '/../config/database.yml')
 ActiveRecord::Base.establish_connection(connection_details)
 
 module Loader
