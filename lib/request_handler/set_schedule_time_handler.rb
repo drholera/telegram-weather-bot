@@ -1,6 +1,6 @@
 require_relative 'command_answer_handler_base'
 
-class SetScheduleTimeHandler < CommandAnswerHandlerBase
+class SetscheduletimeHandler < CommandAnswerHandlerBase
 
   def handle_command
     @bot.api.send_message(chat_id: @request.chat.id, text: "Please, enter the time you want to receive notifications. " +
@@ -26,6 +26,10 @@ class SetScheduleTimeHandler < CommandAnswerHandlerBase
 
     @bot.api.send_message(chat_id: @request.chat.id, text: "Sorry. Time entered in a wrong format, please try again.")
 
+  end
+
+  def self.description
+    '/setScheduleTime command. Set time for a daily schedule.'
   end
 
 end

@@ -1,6 +1,6 @@
 require_relative 'command_answer_handler_base'
 
-class SetCityHandler < CommandAnswerHandlerBase
+class SetcityHandler < CommandAnswerHandlerBase
 
   def handle_command
     if User.find_by(chat_id: @request.chat.id).enabled?

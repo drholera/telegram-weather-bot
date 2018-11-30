@@ -1,6 +1,6 @@
 require_relative 'request_handler_base'
 
-class ScheduleOffHandler < RequestHandlerBase
+class ScheduleoffHandler < RequestHandlerBase
 
   def handle
     super

@@ -27,7 +27,7 @@ module Loader
           # @Todo. Move inner functionality to the separate class.
           Thread.start(rqst) do |rqst|
             if rqst.text and rqst.text[0] == "/"
-              command = rqst.text[1..-1]
+              command = rqst.text[1..-1].downcase
               LastCommand::set_last_command(rqst.chat.id, command)
             else
               command = LastCommand::get_last_command(rqst.chat.id)
