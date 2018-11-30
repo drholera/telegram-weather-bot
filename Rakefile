@@ -45,7 +45,7 @@ namespace :weather do
 
     time = Time.now.strftime('%H:%M')
 
-    file_path = '../tmp/cron.log'
+    file_path = './tmp/cron.log'
     dirname = File.dirname(file_path)
     unless File.directory?(dirname)
       Dir.mkdir(dirname)
