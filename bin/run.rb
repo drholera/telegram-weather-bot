@@ -7,6 +7,7 @@ require_relative '../config/config'
 include Config
 include Loader
 
+# Main loop
 loop do
   main_loop
 end
