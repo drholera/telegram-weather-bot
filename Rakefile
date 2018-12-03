@@ -45,18 +45,8 @@ namespace :weather do
 
     time = Time.now.strftime('%H:%M')
 
-    file_path = './tmp/cron.log'
-    dirname = File.dirname(file_path)
-    unless File.directory?(dirname)
-      Dir.mkdir(dirname)
-    end
-    logger = Logger.new(file_path)
-    logger.level = Logger::INFO
-    logger.info ("Cron has been run at #{time}")
-
     User.where(['forecast_time = ? and enabled = ? and schedule_enabled = ?', time, true, true]).each do |user|
       weather = Weather::API.current_weather(user.city)
-      logger.info("ChatId: #{user.chat_id}")
       Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
         bot.api.send_message(chat_id: user.chat_id, text: WeatherExtractor.new(weather).get_weather_string)
       end
