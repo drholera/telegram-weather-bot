@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require 'telegram/bot'
 require 'logger'
 require_relative '../lib/load'
