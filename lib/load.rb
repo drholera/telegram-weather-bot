@@ -24,7 +24,6 @@ module Loader
     begin
       Telegram::Bot::Client.run(Config::BOT_TOKEN) do |bot|
         bot.listen do |rqst|
-          # @Todo. Move inner functionality to the separate class.
           Thread.start(rqst) do |rqst|
             if rqst.text and rqst.text[0] == "/"
               command = rqst.text[1..-1].downcase

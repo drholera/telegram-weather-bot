@@ -70,7 +70,6 @@ class Weather::API < WeatherHelper
         @current.country = nil
       end
 
-
     end
 
     @current
@@ -122,43 +121,6 @@ class Weather::API < WeatherHelper
 
       @current
     end
-
-    # # Output 3 day @current
-    # puts "\n-------------------------------\n"
-    # puts "\n\nIn 24 Hours:"
-    # puts "\nReport Time:      #{@current.hr24_dt}"
-    # puts "Location:         #{@current.location_name},  #{@current.country}"
-    # puts "Google Maps:      #{@current.google_maps}"
-    # puts "\nTemperature:      #{@current.temp24}ºF / #{toCelsius(@current.temp24)}ºC"
-    # puts "Condition:        #{@current.condition24.capitalize}"
-    # puts "Cloudiness:       #{@current.cloudiness24}%"
-    # puts "\nHumidity:         #{@current.humidity24}%"
-    # puts "Wind Speed:       #{@current.wind_speed24} mph"
-    # puts "Wind Direction:   #{@current.wind_direction24}"
-    #
-    # puts "\n-------------------------------\n"
-    # puts "\n\nIn 48 Hours:"
-    # puts "\nReport Time:      #{@current.hr48_dt}"
-    # puts "Location:         #{@current.location_name},  #{@current.country}"
-    # puts "Google Maps:      #{@current.google_maps}"
-    # puts "\nTemperature:      #{@current.temp48}ºF / #{toCelsius(@current.temp48)}ºC"
-    # puts "Condition:        #{@current.condition48.capitalize}"
-    # puts "Cloudiness:       #{@current.cloudiness48}%"
-    # puts "\nHumidity:         #{@current.humidity48}%"
-    # puts "Wind Speed:       #{@current.wind_speed48} mph"
-    # puts "Wind Direction:   #{@current.wind_direction48}"
-    #
-    # puts "\n-------------------------------\n"
-    # puts "\n\nIn 72 Hours:"
-    # puts "\nReport Time:      #{@current.hr72_dt}"
-    # puts "Location:         #{@current.location_name}, #{@current.country}"
-    # puts "Google Maps:      #{@current.google_maps}"
-    # puts "\nTemperature:      #{@current.temp72}ºF / #{toCelsius(@current.temp72)}ºC"
-    # puts "Condition:        #{@current.condition72.capitalize}"
-    # puts "Cloudiness:       #{@current.cloudiness72}%"
-    # puts "\nHumidity:         #{@current.humidity72}%"
-    # puts "Wind Speed:       #{@current.wind_speed72} mph"
-    # puts "Wind Direction:   #{@current.wind_direction72}"
 
   end
 
