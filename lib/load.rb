@@ -51,7 +51,8 @@ module Loader
       logger = Logger.new(file_path)
       logger.level = Logger::FATAL
       logger.fatal e.message
-      exit 0
+      # Try not to crash, only log
+      # exit 0
     end
   end
 
